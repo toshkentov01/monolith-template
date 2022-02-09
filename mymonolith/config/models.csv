@@ -1,0 +1,5 @@
+p, any, /swagger/*, GET
+p, unauthorized, /api/v1/register/signup/, POST
+g, authorized, any
+g, unauthorized, any
+g, admin, any
