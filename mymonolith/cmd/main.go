@@ -10,7 +10,6 @@ import (
 	"gitlab.com/sardortoshkentov/mymonolith/pkg/middleware"
 	"gitlab.com/sardortoshkentov/mymonolith/pkg/routes"
 	"gitlab.com/sardortoshkentov/mymonolith/pkg/utils"
-	// "gitlab.com/sardortoshkentov/mymonolith/service"
 	_ "gitlab.com/sardortoshkentov/mymonolith/api/docs"
 )
 

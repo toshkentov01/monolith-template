@@ -1,4 +1,5 @@
 CREATE EXTENSION  "uuid-ossp";
+CREATE EXTENSION pgcrypto;
 
 CREATE TABLE users(
     id UUID NOT NULL PRIMARY KEY,
