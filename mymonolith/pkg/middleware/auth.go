@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	casbin "github.com/casbin/casbin/v2"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
+	// gormadapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/gofiber/fiber/v2"
 	"gitlab.com/sardortoshkentov/mymonolith/api/errors"
 	"gitlab.com/sardortoshkentov/mymonolith/config"
@@ -22,7 +22,7 @@ type JWTRoleAuthorizer struct {
 }
 
 //NewJWTRoleAuthorizer creates and returns new Role Authorizer
-func NewJWTRoleAuthorizer(cfg *config.Configuration, adapter *gormadapter.Adapter) (*JWTRoleAuthorizer, error) {
+func NewJWTRoleAuthorizer(cfg *config.Configuration) (*JWTRoleAuthorizer, error) {
 	enforcer, err := casbin.NewEnforcer(cfg.CasbinConfigPath, cfg.MiddleWareRolesPath)
 	if err != nil {
 		log.Fatal("could not initialize new enforcer:", err.Error())
@@ -32,7 +32,6 @@ func NewJWTRoleAuthorizer(cfg *config.Configuration, adapter *gormadapter.Adapte
 	return &JWTRoleAuthorizer{
 		enforcer:   enforcer,
 		SigningKey: []byte(cfg.JWTSecretKey),
-		//		logger:     logger,
 	}, nil
 }
 

@@ -39,9 +39,7 @@ func main() {
 	}))
 	middleware.FiberMiddleware(app)
 
-	_, adapter := utils.InitStorage(config.Config())
-
-	jwtRoleAuthorizer, err := middleware.NewJWTRoleAuthorizer(appConfig, adapter)
+	jwtRoleAuthorizer, err := middleware.NewJWTRoleAuthorizer(appConfig)
 	if err != nil {
 		log.Fatal("Could not initialize JWT Role Authorizer")
 	}
